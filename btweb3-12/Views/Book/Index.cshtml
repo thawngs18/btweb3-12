@@ -1,0 +1,37 @@
+﻿@model List<btweb3_12.Models.Book>
+
+<h2>Danh sách sách</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Description</td>
+                <td>@book.Price</td>
+                <td><img src="@book.Image" alt="@book.Title" style="width:100px;"></td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Add New Book</a>

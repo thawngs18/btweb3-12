@@ -1,0 +1,20 @@
+﻿@model btweb3_12.Models.Book
+
+<h2>Xóa sách</h2>
+
+<div class="alert alert-warning">
+    <p>Bạn có chắc chắn muốn xóa sách này không?</p>
+    <ul>
+        <li><strong>Title:</strong> @Model.Title</li>
+        <li><strong>Author:</strong> @Model.Author</li>
+        <li><strong>Description:</strong> @Model.Description</li>
+        <li><strong>Price:</strong> @Model.Price.ToString("C")</li>
+        <li><img src="@Model.Image" alt="@Model.Title" style="max-width: 200px;"></li>
+    </ul>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
